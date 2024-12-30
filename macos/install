@@ -1,0 +1,52 @@
+# # !/bin/sh
+# clear
+# chmod +x install_llm
+# chmod +x run
+# echo "✨ Another Web browser is free software. We believe that there's no way 
+# to make internet a better place, rather than writing open source stuff.
+
+# 👩‍⚖️ By using this software you agree to MPL-2.0 (LibreWolf), 
+# GPL-3.0 (This program, set of settings) licenses.
+# Another Web is an independent small team, developing set of
+# settings for a great fork of Mozilla's Firefox web browser called LibreWolf.
+# We are not affiliated with Mozilla or LibreWolf contributors.
+# The Firefox name is a trademark of the Mozilla Foundation.
+
+# We will continue fighting big tech. Support our work on another.xyz/donate
+# ❤️  Thanks to LibreWolf contributors and Mozilla for their incredible work."
+# read -p "Press enter to continue. 🙌🏽"
+# dir=${0%/*}
+# if [ "$dir" = "$0" ]; then
+#   dir="."
+# fi
+# cd $dir
+
+# echo "Speaking to Another Web's servers..."
+# config_link="https://raw.githubusercontent.com/Another-Web/browser/refs/heads/main/macos-installation-link"
+# download_link=$(curl -s "$config_link")
+# echo "Downloading..."
+# echo "URL: $download_link"
+# curl -o librewolf.dmg $download_link
+
+# echo "Downloading configs..."
+# git clone https://github.com/Another-Web/settings
+
+# echo "Attaching image..."
+# hdiutil attach LibreWolf.dmg
+# cp -r /Volumes/LibreWolf/LibreWolf.app LibreWolf.app
+# echo "Detaching image..."
+# hdiutil detach /Volumes/LibreWolf
+# echo "Removing image file..."
+# rm LibreWolf.dmg
+
+# echo "Copying Another Web settings..."
+# cp -r settings/* LibreWolf.app/Contents/Resources/
+# echo "Removing configs..."
+# rm -rf settings
+
+read -p "Do you want to install local AI? (y/n): " answer
+if [[ "$answer" == "y" ]]; then
+    ./install_llm
+fi
+
+echo "⚡️ Success! Now you can run Another from your folder."

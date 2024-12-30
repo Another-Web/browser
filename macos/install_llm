@@ -1,0 +1,8 @@
+# !/bin/sh
+echo "Speaking to Another Web's servers..."
+config_link="https://raw.githubusercontent.com/Another-Web/browser/refs/heads/main/llamafile-link"
+download_link=$(curl -s "$config_link")
+echo "Downloading..."
+echo "URL: $download_link"
+curl -o llamafile $download_link
+chmod +x llamafile
