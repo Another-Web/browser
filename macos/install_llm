@@ -4,5 +4,5 @@ config_link="https://raw.githubusercontent.com/Another-Web/browser/refs/heads/ma
 download_link=$(curl -s "$config_link")
 echo "Downloading..."
 echo "URL: $download_link"
-curl -o llamafile $download_link
+curl -L -o llamafile $download_link
 chmod +x llamafile
